@@ -1,0 +1,40 @@
+﻿
+@model List<Tag>
+
+  <!-- Sayfamıza bir servisi enjecte etmek istersek net core mvc de @@inject servisini kullanabiliriz. instance kendisi üretir. -->
+  @inject ITagRepository tagRepo
+
+@{
+
+  string categoryName = ViewContext.HttpContext.Request.Query["CategoryName"];
+  // hangi sayfadaki querystring değeri ile çalıştığımız arayüzden bu şekilde öğrenebiliyoruz.
+  //string session = ViewContext.HttpContext.Session.Get("deneme").ToString();
+
+  string controllerName = ViewContext.HttpContext.Request.RouteValues["Controller"].ToString();
+  string actionName = ViewContext.HttpContext.Request.RouteValues["Action"].ToString();
+  }
+
+  <!-- Kendimize ekmek kırıntısı breadcrumb yaptık -->
+
+  <h1>Tüm Etiketler</h1>
+  <p>
+  /@controllerName/@actionName
+  </p>
+
+
+ @foreach(var item in Model) {
+   <div class="row mb-3">
+
+  @if(!string.IsNullOrEmpty(categoryName))
+  {
+    <etiket text="@item.Name" actionUrl="/Post/List?categoyName=@categoryName&tagId=@item.Id"></etiket>
+  }
+  else
+  {
+    <etiket text="@item.Name" actionUrl="/Post/List?tagId=@item.Id"></etiket>
+  }
+
+  </div>
+
+
+ }

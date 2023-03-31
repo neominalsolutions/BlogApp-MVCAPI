@@ -1,0 +1,103 @@
+﻿
+@{
+  ViewData["Title"] = "List";
+
+  int tagId = Convert.ToInt32(ViewContext.HttpContext.Request.Query["tagId"]);
+  string categoryName = ViewContext.HttpContext.Request.Query["CategoryName"].ToString();
+
+
+}
+
+
+
+
+<div class="container-fluid">
+
+
+  <div id="queryStringValue" style="display:none" data-tagId="@tagId" data-categoryName="@categoryName"></div>
+
+
+  <div class="row">
+    <div class="col-3">
+
+        <input class="form-control" onkeyup="onSearch(event.target.value)" placeholder="makalelerde arama yap" />
+
+        <!-- Tag List -->
+        <vc:tag-list post-id="null"></vc:tag-list>
+      </div>
+      <div class="col-9">
+
+
+
+
+      <select asp-items="@ViewBag.SortList" onchange="OnSort(event)"></select>
+
+
+      
+      <!-- bu sayfada birden fazla componente yer verilebilir .-->
+      <div id="post-list">
+        <vc:post-list category-name="@ViewBag.CategoryName" tag-id="@tagId" search-text="null"></vc:post-list>
+      </div>
+     
+      </div>
+  </div>
+</div>
+
+@section Scripts {
+  <script>
+
+    
+
+
+    //@Url.Action("List","Post",new {categoryName = categoryName, tagId= tagId })
+
+
+    function onSearch(searchText) {
+
+        const cName = $('#queryStringValue').attr('data-categoryName');
+        const tagId = $('#queryStringValue').attr('data-tagId');
+
+       $.ajax({
+            url: `/Post/PostViewComponent?categoryName=${cName}&tagId=${tagId}&searchText=${searchText}`,
+        method:'GET',
+        success:(htmlResult) => {
+          console.log('htmlResult', htmlResult);
+                $('#post-list').empty();
+                $('#post-list').html(htmlResult);
+        },
+        error:(err) => {
+
+        }
+      })
+    }
+
+    function OnSort(event) {
+      console.log('event', event.target.value);
+
+       const cName =  $('#queryStringValue').attr('data-categoryName');
+        const tagId = $('#queryStringValue').attr('data-tagId');
+
+      
+
+      $.ajax({
+            url: `/Post/PostViewComponent?categoryName=${cName}&tagId=${tagId}&sortBy=${event.target.value}`,
+        method:'GET',
+        success:(htmlResult) => {
+          console.log('htmlResult', htmlResult);
+                $('#post-list').empty();
+                $('#post-list').html(htmlResult);
+        },
+        error:(err) => {
+
+        }
+      })
+    }
+
+  </script>
+}
+
+
+
+
+
+

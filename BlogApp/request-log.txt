@@ -1,0 +1,20 @@
+Hata GET /Logging => 200
+Hata Mesajı: The partial view '~/privacyHeader' was not found. The following locations were searched:
+~/privacyHeader from GET /Home/Privacy => 200
+Hata Mesajı: LocalDB is not supported on this platform. from GET / => 200
+Hata Mesajı: LocalDB is not supported on this platform. from GET /Home/Index => 200
+Hata Mesajı: LocalDB is not supported on this platform. from GET / => 200
+Hata Mesajı: LocalDB is not supported on this platform. from GET / => 200
+Hata Mesajı: LocalDB is not supported on this platform. from GET / => 200
+Hata Mesajı: LocalDB is not supported on this platform. from GET / => 200
+Hata Mesajı: The view 'Index' was not found. The following locations were searched:
+/Views/ClientCredential/Index.cshtml
+/Views/Shared/Index.cshtml from POST /ClientCredential/Index => 200
+Hata Mesajı: The view 'Index' was not found. The following locations were searched:
+/Views/ClientCredential/Index.cshtml
+/Views/Shared/Index.cshtml from POST /ClientCredential/Index => 200
+Hata Mesajı: The view 'Index' was not found. The following locations were searched:
+/Views/Value/Index.cshtml
+/Views/Shared/Index.cshtml from GET /Value => 200
+Hata Mesajı: Hedef makine etkin olarak reddettiğinden bağlantı kurulamadı. (localhost:5001) from POST /Account/Login => 200
+Hata Mesajı: Hedef makine etkin olarak reddettiğinden bağlantı kurulamadı. (localhost:5001) from POST /Account/Login => 200

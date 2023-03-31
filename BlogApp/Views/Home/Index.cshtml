@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row">
+   <!-- herhangi bir kategori tanımı yok -->
+
+   <div class="col-3">
+     <vc:tag-list post-id="null"></vc:tag-list>
+   </div>
+   <div class="col-9">
+    <vc:post-list category-name="" tag-id="null" search-text=""></vc:post-list>
+   </div>
+   
+</div>
+
+
+@section Scripts {
+  <script>
+  function btnClick(event){
+    alert("clicked", event)
+  }
+
+  </script>
+}

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BlogApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BlogApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+      <!-- Post Category View Componenti çalıştır. -->
+      <!-- 1. yöntem -->
+      <!-- view componentler tag helper gibi çalıştırılabilir. -->
+        @await Component.InvokeAsync("PostCategory")
+
+        <!-- 2.yöntem vc:component-name tag helper çağırım şekli -->
+
+    
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - BlogApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    @{
+      int counter = 1;
+    }
+
+    <!-- partial tag helper ile ilgili bir tanımlama -->
+    <partial name="_ValidationScriptsPartial" model="@counter" />
+
+    <!-- partiallara modeli Controller action üzerideki modelleri kullanrak gönderebiliriz. kendisi gidip bir arka ucu çalışıtarak view yansıtmaz. kendisi bağımsız bir şekilde dinamik içerik ile çalışamaz -->
+    <!-- dinamik veri bağlmamamız gerektiğinde view component daha anlamlı oluyor.-->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Caching\MemCache\" />
+    <Folder Include="Caching\Redis\" />
+    <Folder Include="Logging\GrayLog\" />
+    <Folder Include="Logging\NLog\" />
+    <Folder Include="Logging\SeqLog\" />
+    <Folder Include="Logging\Serilog\" />
+    <Folder Include="MessageBrokers\Amazon.SQS\" />
+    <Folder Include="MessageBrokers\Kafka\" />
+    <Folder Include="MessageBrokers\AzureServiceBus\" />
+    <Folder Include="MessageBrokers\RebbitMq\" />
+    <Folder Include="Notification\Email\" />
+    <Folder Include="Notification\SMS\" />
+    <Folder Include="Notification\PushNotification\" />
+    <Folder Include="Persistance\Adonet\" />
+    <Folder Include="Persistance\Mongo\" />
+    <Folder Include="Persistance\Elastic\" />
+    <Folder Include="Storage\AmazonS3\" />
+    <Folder Include="Storage\AzureBlobStorage\" />
+    <Folder Include="Storage\MinioBlobStorage\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlogApp.Domain\BlogApp.Domain.csproj" />
+    <ProjectReference Include="..\BlogApp.Persistance\BlogApp.Persistance.csproj" />
+  </ItemGroup>
+
+</Project>

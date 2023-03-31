@@ -1,0 +1,73 @@
+﻿<!--Dinamik modelinizi arayüze bastığınız kısım -->
+@model List<Category>
+
+
+@{
+  int tagId = Convert.ToInt32(ViewContext.HttpContext.Request.Query["tagId"]);
+  string searchText = string.Empty;
+}
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BlogApp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+      <ul class="navbar-nav flex-grow-1">
+
+
+
+
+        @foreach (var item in Model)
+        {
+          <li class="nav-item">
+            <!--/Post/List?categoryName='kategori1'-->
+            <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="List" asp-route-searchText="@searchText" asp-route-categoryName="@item.Name" asp-route-tagId="@tagId">@item.Name.Trim().ToUpper()</a>
+          </li>
+        }
+
+
+        <li class="nav-item">
+          <!--/Post/List?categoryName='kategori1'-->
+          <a class="nav-link text-dark" asp-area="" asp-controller="Logging" asp-action="Index">Loggin Middleware Test Et</a>
+        </li>
+
+
+        @if(!User.Identity.IsAuthenticated)
+        {
+          <li class="nav-item me-auto">
+            <!--/Post/List?categoryName='kategori1'-->
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Oturum Aç</a>
+          </li>
+        } 
+        else
+        {
+
+          <li class="nav-item me-auto">
+            <!--/Post/List?categoryName='kategori1'-->
+            <a class="nav-link text-dark" asp-area="" asp-controller="Value" asp-action="Index">Protected Resource</a>
+          </li>
+
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              @User.Identity.Name
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" asp-action="Logout" asp-controller="Account">Oturumu kapat</a></li>
+              @if(User.IsInRole("Admin"))
+              {
+                <li><a class="dropdown-item" href="#">Yönetim Paneli</a></li>
+              }
+
+            </ul>
+          </div>
+          
+        }
+
+      </ul>
+    </div>
+  </div>
+</nav>
