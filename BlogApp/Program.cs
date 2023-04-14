@@ -21,9 +21,9 @@ builder.Services.AddDbContext<BlogAppContext>(opt => opt.UseSqlServer( builder.C
 // scoped service web programlarý için tanýmlanmýþ web request bazlý instance oluþturlmasýna olanak saðlayan bir service lifetime scope hizmet.
 // buradaki sýnýflar ne kadarlýk bir zaman aralýðýnda uygulamada instancelarý kullanýlacak.
 // unmanagement resource api call, db call, upload gibi operasyonlarda 
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<IPostRepository, PostRepository>();
-builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
+builder.Services.AddScoped<IPostRepository, EFPostRepository>();
+builder.Services.AddScoped<ITagRepository, EFTagRepository>();
 builder.Services.AddScoped<ICreatePostRequestService, CreatePostRequestService>();
 builder.Services.AddScoped<IPostDomainService, PostDomainService>();
 

@@ -31,6 +31,15 @@ namespace BlogApp.Application.Services
       // program nesneleri olan Dto gibi request nesnelerini, Entitylere dönüştürür
       // auto mapper kütüphanesi kullanılabilir
       var post = new Post(title: request.Title, content: request.Content);
+      //post.Title = "sadsad";
+      post.SetTitle("wdsadsa");
+      //post.Commments.add
+
+      //var p = new Post(title: "title-1", content: "content-1");
+      //p.AddComment(commentBy: "ali", CommentText: "Merhaba");
+      //p.AddTag("#yazilim");
+      //p.AddTag("#clean_architecture");
+
       post.Category = new Category(request.CategoryName);
       post.SetPostedBy("Mert");
 

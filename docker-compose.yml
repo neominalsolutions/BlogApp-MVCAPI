@@ -6,3 +6,11 @@ services:
     build:
       context: .
       dockerfile: BlogApp/Dockerfile
+
+  blogapp.api:
+    image: ${DOCKER_REGISTRY-}blogapp
+    build:
+      context: .
+      dockerfile: BlogApp/Dockerfile
+
+

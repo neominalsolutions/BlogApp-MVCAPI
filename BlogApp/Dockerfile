@@ -1,10 +1,10 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+#docker pull mcr.microsoft.com/dotnet/aspnet:7.0
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
-
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
@@ -13,6 +13,7 @@ COPY ["BlogApp.Application/BlogApp.Application.csproj", "BlogApp.Application/"]
 COPY ["BlogApp.Domain/BlogApp.Domain.csproj", "BlogApp.Domain/"]
 COPY ["BlogApp.Persistance/BlogApp.Persistance.csproj", "BlogApp.Persistance/"]
 COPY ["BlogApp.Infra/BlogApp.Infra.csproj", "BlogApp.Infra/"]
+COPY ["BlogApp.Messaging/BlogApp.Messaging.csproj", "BlogApp.Messaging/"]
 RUN dotnet restore "BlogApp/BlogApp.csproj"
 COPY . .
 WORKDIR "/src/BlogApp"

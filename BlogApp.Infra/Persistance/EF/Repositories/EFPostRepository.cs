@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Infra.Persistance.EF.Repositories
 {
-  public class PostRepository : IPostRepository
+  public class EFPostRepository : IPostRepository
   {
 
     // Veri tabanı balantısı ve veri tabanındaki Entity Stateleri yönettiğimiz kısım. DB bazlı EF Altyapı hizmeti
@@ -21,7 +21,7 @@ namespace BlogApp.Infra.Persistance.EF.Repositories
     private readonly BlogAppContext _blogAppContext;
 
 
-    public PostRepository(BlogAppContext blogAppContext)
+    public EFPostRepository(BlogAppContext blogAppContext)
     {
       _blogAppContext = blogAppContext;
     }

@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Infra.Persistance.EF.Repositories
 {
-  public class TagRepository : ITagRepository
+  public class EFTagRepository : ITagRepository
   {
 
     private readonly BlogAppContext _blogAppContext;
 
 
-    public TagRepository(BlogAppContext blogAppContext)
+    public EFTagRepository(BlogAppContext blogAppContext)
     {
       _blogAppContext = blogAppContext;
     }

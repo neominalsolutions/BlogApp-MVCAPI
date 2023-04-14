@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Infra.Persistance.EF.Repositories
 {
-  public class CategoryRepository : ICategoryRepository
+  public class EFCategoryRepository : ICategoryRepository
   {
 
 
     private readonly BlogAppContext _blogAppContext;
 
 
-    public CategoryRepository(BlogAppContext blogAppContext)
+    public EFCategoryRepository(BlogAppContext blogAppContext)
     {
       _blogAppContext = blogAppContext;
     }

@@ -23,7 +23,11 @@ namespace BlogApp.Controllers
 
     public IActionResult Login()
     {
-     
+
+      //using (HttpClient http = new HttpClient())
+      //{
+      //  http.
+      //}
 
       return View();
     }

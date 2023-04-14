@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>377441ef-f238-42b2-b266-a0998c840c00</ProjectGuid>
+    <ProjectGuid>f17ede06-7f55-4fdb-81a4-de4f9787b624</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>blogapp</DockerServiceName>
